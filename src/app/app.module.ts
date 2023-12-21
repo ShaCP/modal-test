@@ -10,6 +10,7 @@ import { ModalParentTwoComponent } from './modal-parent-two/modal-parent-two.com
 import { ModalTwoComponent } from './modal-two/modal-two.component';
 import { ModalThreeComponent } from './modal-three/modal-three.component';
 import { ModalParentThreeComponent } from './modal-parent-three/modal-parent-three.component';
+import { ModalContentComponent } from './modal-content/modal-content.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ModalParentThreeComponent } from './modal-parent-three/modal-parent-thr
     ModalParentTwoComponent,
     ModalTwoComponent,
     ModalThreeComponent,
-    ModalParentThreeComponent
+    ModalParentThreeComponent,
+    ModalContentComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
-import { Component, TemplateRef, inject } from '@angular/core';
+import { Component, TemplateRef, ViewChild, inject } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-modal-parent',
@@ -8,10 +9,8 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbActiveModal],
 })
 export class ModalParentComponent {
-  constructor(activeModal: NgbActiveModal) {}
-
-  private modalService = inject(NgbModal);
-  open(content: TemplateRef<any>) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  @ViewChild('modal') private modalComponent?: ModalComponent;
+  open() {
+    this.modalComponent?.open();
   }
 }

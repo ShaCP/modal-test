@@ -1,5 +1,5 @@
-import { Component, TemplateRef } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-modal',
@@ -7,9 +7,18 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
-  closeResult = '';
+  modal?: NgbModalRef;
+  @ViewChild('content') private modalContent?: TemplateRef<ModalComponent>
   constructor(private modalService: NgbModal) {}
-  open(content: TemplateRef<any>) {
-    this.modalService.open(content);
+  open() {
+    this.modal = this.modalService.open(this.modalContent);
+  }
+
+  close(result?: any) {
+    this.modal?.close(result);
+  }
+
+  dismiss(reason?: any) {
+    this.modal?.dismiss(reason);
   }
 }
