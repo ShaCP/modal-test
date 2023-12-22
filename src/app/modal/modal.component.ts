@@ -8,7 +8,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalComponent {
   modal?: NgbModalRef;
-  @ViewChild('content') private modalContent?: TemplateRef<ModalComponent>
+  @ViewChild('content') private modalContent?: TemplateRef<ModalComponent>;
   constructor(private modalService: NgbModal) {}
   open() {
     this.modal = this.modalService.open(this.modalContent);

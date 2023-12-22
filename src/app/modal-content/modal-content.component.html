@@ -1,1 +1,11 @@
-<p>modal-content works!</p>
+<!-- <p>modal-content works!</p> -->
+<div>
+  <form>
+    <fieldset>
+      <label *ngFor="let item of selected">
+        <input type="checkbox" [checked]="item.selected" />
+        {{ item.name }}</label
+      >
+    </fieldset>
+  </form>
+</div>

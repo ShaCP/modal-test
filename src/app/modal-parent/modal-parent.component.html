@@ -1,2 +1,4 @@
-<app-modal #modal><app-modal-content></app-modal-content></app-modal>
-<button (click)="open()">Open</button>
+<app-modal #modal
+  ><app-modal-content [selected]="selected"></app-modal-content
+></app-modal>
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Open</button>
