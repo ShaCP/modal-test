@@ -8,4 +8,11 @@ import { Item } from '../modal-parent/modal-parent.component';
 })
 export class ModalContentComponent {
   @Input() selected: Item[] = [];
+
+  onChangeHandler = (item: Item, i: number) => {
+    this.selected[i] = {
+      ...item,
+      selected: !item.selected,
+    };
+  };
 }

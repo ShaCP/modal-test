@@ -12,6 +12,7 @@ export class ModalComponent {
   constructor(private modalService: NgbModal) {}
   open() {
     this.modal = this.modalService.open(this.modalContent);
+    return this.modal.result;
   }
 
   close(result?: any) {

@@ -2,8 +2,12 @@
 <div>
   <form>
     <fieldset>
-      <label *ngFor="let item of selected">
-        <input type="checkbox" [checked]="item.selected" />
+      <label *ngFor="let item of selected; index as i">
+        <input
+          type="checkbox"
+          [checked]="item.selected"
+          (change)="onChangeHandler(item, i)"
+        />
         {{ item.name }}</label
       >
     </fieldset>

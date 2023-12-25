@@ -15,12 +15,17 @@ export type Item = {
   providers: [NgbActiveModal],
 })
 export class ModalParentComponent {
+  modalResult?: Promise<any>;
   @ViewChild('modal') private modalComponent?: ModalComponent;
   open() {
-    this.modalComponent?.open();
+    this.modalResult = this.modalComponent?.open();
+    this.modalResult?.then(
+      () => (this.selected = [...this.tempSelected]),
+      () => (this.tempSelected = [...this.selected])
+    );
   }
 
-  selected: Item[] = [
+  tempSelected: Item[] = [
     {
       id: 1,
       name: 'Logan',
@@ -32,4 +37,6 @@ export class ModalParentComponent {
       selected: true,
     },
   ];
+
+  selected: Item[] = [...this.tempSelected];
 }
