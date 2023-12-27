@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Item } from '../modal-parent/modal-parent.component';
 
 @Component({
@@ -11,6 +11,8 @@ export class ModalContentComponent {
 
   @Input() items: Item[] = [];
 
+  @Output() itemsResult: EventEmitter<number[]> = new EventEmitter();
+
   onChangeHandler = (item: Item) => {
     const itemIndex = this.selected.indexOf(item.id);
     if (itemIndex > -1) {
@@ -18,5 +20,6 @@ export class ModalContentComponent {
       return;
     }
     this.selected.push(item.id);
+    this.itemsResult.emit(this.selected);
   };
 }

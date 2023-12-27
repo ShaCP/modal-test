@@ -35,6 +35,8 @@ export class ModalParentComponent {
     },
   ];
 
+  onEmit = (items: number[]) => console.log(items);
+
   tempSelected: number[] = [];
 
   selected: number[] = [...this.tempSelected];

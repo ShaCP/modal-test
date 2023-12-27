@@ -1,4 +1,16 @@
-<app-modal #modal
-  ><app-modal-content [selected]="tempSelected" [items]="items"></app-modal-content
-></app-modal>
+<!-- this -->
+<ng-template #modalContent
+  ><app-modal-content
+    [selected]="tempSelected"
+    [items]="items"
+    (itemsResult)="onEmit($event)"
+  ></app-modal-content
+></ng-template>
+<app-modal #modal><ng-container *ngTemplateOutlet="modalContent"></ng-container></app-modal>
 <button class="btn btn-lg btn-outline-primary" (click)="open()">Open</button>
+
+<!-- instead of this -->
+<!-- <app-modal #modal
+  ><app-modal-content [selected]="tempSelected" (itemsResult)="onEmit($event)"></app-modal-content
+></app-modal>
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Open</button> -->
