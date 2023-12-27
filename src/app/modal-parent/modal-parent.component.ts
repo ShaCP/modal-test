@@ -5,7 +5,6 @@ import { ModalComponent } from '../modal/modal.component';
 export type Item = {
   id: number;
   name: string;
-  selected: boolean;
 };
 
 @Component({
@@ -25,18 +24,18 @@ export class ModalParentComponent {
     );
   }
 
-  tempSelected: Item[] = [
+  items: Item[] = [
     {
       id: 1,
       name: 'Logan',
-      selected: false,
     },
     {
       id: 2,
       name: 'Katherine',
-      selected: true,
     },
   ];
 
-  selected: Item[] = [...this.tempSelected];
+  tempSelected: number[] = [];
+
+  selected: number[] = [...this.tempSelected];
 }

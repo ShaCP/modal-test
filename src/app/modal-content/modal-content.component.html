@@ -2,11 +2,11 @@
 <div>
   <form>
     <fieldset>
-      <label *ngFor="let item of selected; index as i">
+      <label *ngFor="let item of items; index as i">
         <input
           type="checkbox"
-          [checked]="item.selected"
-          (change)="onChangeHandler(item, i)"
+          [checked]="selected.includes(item.id)"
+          (change)="onChangeHandler(item)"
         />
         {{ item.name }}</label
       >

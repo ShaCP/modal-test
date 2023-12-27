@@ -7,12 +7,16 @@ import { Item } from '../modal-parent/modal-parent.component';
   styleUrls: ['./modal-content.component.scss'],
 })
 export class ModalContentComponent {
-  @Input() selected: Item[] = [];
+  @Input() selected: number[] = [];
 
-  onChangeHandler = (item: Item, i: number) => {
-    this.selected[i] = {
-      ...item,
-      selected: !item.selected,
-    };
+  @Input() items: Item[] = [];
+
+  onChangeHandler = (item: Item) => {
+    const itemIndex = this.selected.indexOf(item.id);
+    if (itemIndex > -1) {
+      this.selected.splice(itemIndex, 1);
+      return;
+    }
+    this.selected.push(item.id);
   };
 }
